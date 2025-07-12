@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        .navbar-brand {
+            color: rgb(31, 159, 84) !important;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .navbar-nav a {
+            /* text-decoration: underline; */
+            padding: 7px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+
+        .navbar-nav a:hover {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            transition: all 0.3s;
+            color: rgb(31, 159, 84) !important;
+
+        }
+
+        .container-fluid {
+            display: flex !important;
+            justify-content: space-between !important;
+        }
+        #searchDiv{
+            width: 50%;
+            padding: 30px;
+        }
+        #backk{
+            background: url(background.png) center/cover no-repeat;
+            height: 400px;
+        }
+    </style>
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-house"></i> Luxury Estates</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link" href="properties.html">Properties</a>
+                    <a class="nav-link" href="favorites.html">Favorites</a>
+                    <a class="nav-link" href="contactUs.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div id="backk">
+        <div id="searchDiv">
+            <h1>Find Your Dream Home</h1>
+            <p>Discover exclusive properties in the most desirable locations. From luxury apartments to stunning villas,
+                we have the perpect home for you.</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search..." aria-label="Search">
+                <button class="btn btn-success" type="button">Search</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="bootstrap.js"></script>
+</body>
+
+</html>
