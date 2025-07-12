@@ -91,7 +91,7 @@
             width: 100%;
             height: auto;
             background: #fff;
-            border-radius: 12px;
+            border-radius: 5px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             font-family: sans-serif;
@@ -169,7 +169,8 @@
 
 
         .property-info button:hover {
-            background-color: #0056b3;
+            transform: scale(0.9);
+            transition: all 1s;
         }
 
         #featuredP {
@@ -184,6 +185,22 @@
         #featured h1{
             font-family: 'Times New Roman', Times, serif;
             font-weight: bold;
+        }
+        #featured{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #fav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #fav i{
+            color: rgb(228, 12, 12);
+            background-color: #f5ecec;
+            padding: 10px;
+            border-radius: 20px;
         }
     </style>
 </head>
@@ -260,7 +277,7 @@
                                     <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
                                     <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
                                 </div>
-                                <h1 class="price">$${item.price}</h1>
+                                <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart"></i></div>
                                 <button onclick="ViewDetails(${item.id})">View Details</button>
                             </div>
                         </div>
