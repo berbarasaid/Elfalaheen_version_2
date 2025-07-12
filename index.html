@@ -297,7 +297,11 @@
                                     <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
                                     <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
                                 </div>
+<<<<<<< HEAD
                                <i class="fa-regular fa-heart fav_btn" onclick="loved(${item.id}, this)"></i>
+=======
+                               <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart" onclick="loved(${item.id})" class="fav_btn"></i></div>
+>>>>>>> a74ac26bfded1a55fc193860d94808476fe5a22b
 
                                 <button onclick="ViewDetails(${item.id})">View Details</button>
                             </div>
@@ -317,6 +321,7 @@
                 });
             });
 
+<<<<<<< HEAD
         function ViewDetails(Id){
             localStorage.setItem("viewDetails", Id);
             window.location.href = "details.html"; //
@@ -324,6 +329,45 @@
         
 
         
+=======
+        // function ViewDetails(Id){
+        //     localStorage.setItem("viewDetails", Id);
+        // }
+        // function loadfav(){
+        //     const fav = localStorage.getItem("fav")
+        //     return fav? JSON.parse(fav) : []
+        // }
+        // function savefavn(fav){
+        //     localStorage.setItem("fav", JSON.stringify(fav))
+        // }
+        // function togglefav(id){
+        //     let favorites = loadfav()
+        //     const index = favorites.indexOf(id)
+        //     if(index > -1){
+        //         favorites.splice(index, 1)
+        //     }
+        //     else{
+        //         favorites.push(id)
+        //     }
+        //     savefavn(fav)
+        //     updatefav_btn()
+        // }
+        // function updatefav_btn(){
+        //     const favorites = loadfav()
+        //     document.querySelectorAll("fav_btn").forEach(btn => {
+        //         const id = parseInt(btn.dataset.id)
+        //         if(favorites.includes(id)){
+        //             btn.classList.add("faved")
+        //             btn.innerHTML = <i class="fa-regular fa-heart" onclick="fav(1)"></i>
+        //         }
+        //         else{
+        //             btn.classList.remove("faved")
+        //             btn.innerHTML = <i class="fa-regular fa-heart" onclick="fav(1)"></i>
+        //         }
+        //     })
+
+        // }
+>>>>>>> a74ac26bfded1a55fc193860d94808476fe5a22b
         function loved(id) {
             const favItem = allProducts.find(p => p.id === id);
 
