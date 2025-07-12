@@ -179,7 +179,11 @@
             align-items: center;
             gap: 50px;
             padding: 30px;
-            background-color: #d4f3dc;
+            background-color: #e4ffeacf;
+        }
+        #featured h1{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -217,7 +221,7 @@
     </div>
 
     <div id="featuredP">
-        <div>
+        <div id="featured">
             <h1>Featured Properties</h1>
             <p>Explore our handpicked selection of premium properties</p>
         </div>
@@ -257,7 +261,7 @@
                                     <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
                                 </div>
                                 <h1 class="price">$${item.price}</h1>
-                                <button>View Details</button>
+                                <button onclick="ViewDetails(${item.id})">View Details</button>
                             </div>
                         </div>
             `;
@@ -274,6 +278,10 @@
                     },
                 });
             });
+
+            function ViewDetails(Id){
+                localStorage.setItem("viewDetails", Id);
+            }
     </script>
 </body>
 
