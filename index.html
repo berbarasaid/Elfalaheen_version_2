@@ -231,7 +231,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     <a class="nav-link" href="properties.html">Properties</a>
-                    <a class="nav-link" href="favorites.html">Favorites</a>
+                    <a class="nav-link" href="fav.html">Favorites</a>
                     <a class="nav-link" href="contactUs.html">Contact</a>
                 </div>
             </div>
@@ -268,13 +268,15 @@
 
     <script src="bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         let allProducts = [];
-let myArray = JSON.parse(localStorage.getItem("loved")) || [];
+        let myArray = JSON.parse(localStorage.getItem("loved")) || [];
         fetch("https://edu-me01.github.io/Json-Data/properties.json")
             .then(res => res.json())
             .then(data => {
-                dataa=data
+                // data=dataset
+                allProducts = data.properties; // 🟢 هنا الحل
                 const wrapper = document.getElementById("swiperWrapper");
 
                 data.properties.forEach(item => {
@@ -295,7 +297,12 @@ let myArray = JSON.parse(localStorage.getItem("loved")) || [];
                                     <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
                                     <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
                                 </div>
-                                <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart" onclick="loved(${item.id})" class="fav_btn"></i></div>
+<<<<<<< HEAD
+                               <i class="fa-regular fa-heart fav_btn" onclick="loved(${item.id}, this)"></i>
+=======
+                               <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart" onclick="loved(${item.id})" class="fav_btn"></i></div>
+>>>>>>> a74ac26bfded1a55fc193860d94808476fe5a22b
+
                                 <button onclick="ViewDetails(${item.id})">View Details</button>
                             </div>
                         </div>
@@ -314,6 +321,15 @@ let myArray = JSON.parse(localStorage.getItem("loved")) || [];
                 });
             });
 
+<<<<<<< HEAD
+        function ViewDetails(Id){
+            localStorage.setItem("viewDetails", Id);
+            window.location.href = "details.html"; //
+        }
+        
+
+        
+=======
         // function ViewDetails(Id){
         //     localStorage.setItem("viewDetails", Id);
         // }
@@ -342,17 +358,18 @@ let myArray = JSON.parse(localStorage.getItem("loved")) || [];
         //         const id = parseInt(btn.dataset.id)
         //         if(favorites.includes(id)){
         //             btn.classList.add("faved")
-        //             btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
+        //             btn.innerHTML = <i class="fa-regular fa-heart" onclick="fav(1)"></i>
         //         }
         //         else{
         //             btn.classList.remove("faved")
-        //             btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
+        //             btn.innerHTML = <i class="fa-regular fa-heart" onclick="fav(1)"></i>
         //         }
         //     })
 
         // }
+>>>>>>> a74ac26bfded1a55fc193860d94808476fe5a22b
         function loved(id) {
-            const favItem = dataa.properties.find(p => p.id === id);
+            const favItem = allProducts.find(p => p.id === id);
 
             if (!favItem) {
                 Swal.fire({
