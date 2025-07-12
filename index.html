@@ -217,6 +217,10 @@
             padding: 10px;
             border-radius: 20px;
         }
+
+        .faved:hover {
+            transform: scale(0.9);
+        }
     </style>
 </head>
 <header>
@@ -282,6 +286,9 @@
                 data.properties.forEach(item => {
                     const slide = document.createElement("div");
                     slide.className = "swiper-slide";
+                    const isFaved = myArray.some(p => p.id === item.id);
+                    const favClass = isFaved ? "faved" : "fav_btn";
+
                     slide.innerHTML = `
                         <div class="property-card">
                             <img src="${item.images[0]}" alt="${item.title}" />
@@ -297,7 +304,7 @@
                                     <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
                                     <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
                                 </div>
-                               <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart" onclick="loved(${item.id})" class="fav_btn"></i></div>
+                               <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart ${favClass}" onclick="loved(this,${item.id})"></i></div>
 
                                 <button onclick="ViewDetails(${item.id})">View Details</button>
                             </div>
@@ -354,7 +361,7 @@
         //     })
 
         // }
-        function loved(id) {
+        function loved(btn, id) {
             const favItem = allProducts.find(p => p.id === id);
 
             if (!favItem) {
@@ -376,6 +383,7 @@
                     title: "Added to favorites!",
                     icon: "success"
                 });
+                btn.classList.add("faved")
             } else {
                 // موجود، نحذفه
                 myArray.splice(existIndex, 1);
@@ -385,6 +393,7 @@
                     title: "Removed from favorites!",
                     icon: "warning"
                 });
+                btn.classList.remove("faved")
             }
         }
     </script>
