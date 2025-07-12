@@ -317,43 +317,13 @@
                 });
             });
 
-        // function ViewDetails(Id){
-        //     localStorage.setItem("viewDetails", Id);
-        // }
-        // function loadfav(){
-        //     const fav = localStorage.getItem("fav")
-        //     return fav? JSON.parse(fav) : []
-        // }
-        // function savefavn(fav){
-        //     localStorage.setItem("fav", JSON.stringify(fav))
-        // }
-        // function togglefav(id){
-        //     let favorites = loadfav()
-        //     const index = favorites.indexOf(id)
-        //     if(index > -1){
-        //         favorites.splice(index, 1)
-        //     }
-        //     else{
-        //         favorites.push(id)
-        //     }
-        //     savefavn(fav)
-        //     updatefav_btn()
-        // }
-        // function updatefav_btn(){
-        //     const favorites = loadfav()
-        //     document.querySelectorAll("fav_btn").forEach(btn => {
-        //         const id = parseInt(btn.dataset.id)
-        //         if(favorites.includes(id)){
-        //             btn.classList.add("faved")
-        //             btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
-        //         }
-        //         else{
-        //             btn.classList.remove("faved")
-        //             btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
-        //         }
-        //     })
+        function ViewDetails(Id){
+            localStorage.setItem("viewDetails", Id);
+            window.location.href = "details.html"; //
+        }
+        
 
-        // }
+        
         function loved(id) {
             const favItem = allProducts.find(p => p.id === id);
 
