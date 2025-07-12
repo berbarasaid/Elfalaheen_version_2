@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <link rel="stylesheet" href="task.css">
+    <title>task</title>
+</head>
+<body>
+    <div class="header">
+        <h2>our team</h2>
+        <div class="links">
+            <a href="hphi,'">home</a>
+            <a href="hphi,'">team</a>
+            <a href="hphi,'">state</a>
+            <a href="hphi,'">contact</a>
+        </div>
+    </div>
+    <div class="descrip">
+        <h1>our profissional team <br></h1>
+       <p>we are ateam of skilled profissional in developed and design , warking together to provide best tecnecal solusion for our client  </p>
+    </div>
+    <div class="team">
+
+        <h1>team meamber</h1>
+     <div class="lala" id="ll">
+        <section id="s1">
+            <img src="shutterstock_smile-or-remove-your-photo-scaled.jpg" alt="bbb" class="immg">
+            <h3>john Smith</h3>
+            <h4>leader web developer</h4>
+            <p>Specialized in web application development using modern technologies like React and Node.js. Over
+                5 years of experience in the field.</p>
+                <div class="link">
+                    <a href="k;lk">html</a>
+                    <a href="k;lk">css</a>
+                    <a href="k;lk">javascript</a>
+                    <a href="k;lk">react</a>
+                </div>
+                <div class="button">
+                    <button class="a">vew profile</button>
+                    <button class="b">contact profile</button>
+
+                </div>
+        </section>
+        
+        <section id="s2">
+            <img src="smiling-young-job-applicant-her-cv-stylish-black-jacket-33789313.webp" alt=""class="immg">
+            <h3>Sarah Johnson</h3>
+            <h4>UI/UX Designer</h4>
+            <p>Specialized in user experience and interface design. Works on improving user experience and
+                making applications more user-friendly.</p>
+                <div class="link">
+                    <a href="k;lk">Figma</a>
+                    <a href="k;lk">UI Design</a>
+                    <a href="k;lk">UX Research</a>
+                    <a href="k;lk">Prototyping</a>
+                </div>
+                <div class="button">
+                    <button class="a">vew profile</button>
+                    <button class="b">contact profile</button>
+
+                </div>
+        </section>
+        <section id="s3">
+            <img src="03d8db5fa74516252ade0c0bc77aeb9e.jpg" alt=""class="immg">
+            <h3>Michael Brown</h3>
+            <h4>John Smith</h4>
+            <p>pecialized in web application development using modern technologies like React and Node.js. Over
+                5 years of experience in the field.</p>
+                <div class="link">
+                    <a href="k;lk">Home </a>
+                    <a href="k;lk">css</a>
+                    <a href="k;lk">javascript</a>
+                    <a href="k;lk">react</a>
+                </div>
+                <div class="button">
+                    <button class="a">vew profile</button>
+                    <button class="b">contact profile</button>
+
+                </div>
+        </section>
+         <!-- <div id="vv"></div> -->
+     </div>
+     <DIv class="xs">
+     <button class="xx" onclick="fun()">add</button> <button class="x" onclick="fun2()">remove</button>
+    </DIv>
+    </div>
+    <div class="state">
+        <h2 id="mm">our team state</h2>
+      
+        <div class="up">
+          <div>
+            <h2>15+</h2>
+            <p>companed years of experience</p>
+          </div>
+          <div>
+            <h2>50+</h2>
+            <p>completed project</p>
+          </div>
+          <div>
+            <h2>100%</h2>
+            <p>client satisfied</p>
+          </div>
+        </div>
+      
+        <div class="down">
+          <h2>10+</h2>
+          <p>mastered technologies</p>
+        </div>
+    </div>
+    <div class="jj">
+        <p>© 2023 Our Team. All rights reserved.</p>
+        <p>Email: info@team.com | Phone: 0123456789</p>
+    </div>
+    
+    <script>
+        var i=3;
+function fun() {
+    i++; 
+var x=prompt("inter the team member name"); 
+var y = prompt( " inter your jop ")
+var t =prompt("inter your discrip")
+document.getElementById("ll") .innerHTML+=`
+<section id="s${i}">
+         <img src="Annotation 2025-07-01 215218.jpg"alt=""class="immg">
+            <h3>${x}</h3>
+            <h4>${y}</h4>
+            <p>${t}</p>
+                <div class="link">
+                    <a href="k;lk">Home </a>
+                    <a href="k;lk">css</a>
+                    <a href="k;lk">javascript</a>
+                    <a href="k;lk">react</a>
+                </div>
+                <div class="button">
+                    <button class="a">vew profile</button>
+                    <button class="b">contact profile</button>
+
+                </div>
+        </section>`
+    
+}
+function fun2() {
+   
+    document.getElementById("s" +i).remove();
+    i--; 
+  
+    
+}
+
+    </script>
+</body>
+</html>
