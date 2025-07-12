@@ -131,12 +131,17 @@
             overflow: hidden;
             padding: 15px;
             box-shadow: 1px 2px 10px grey;
-            transition: all 0.3s ease-in-out;
+            transition: all 0.5s ;
             background-color: white;
             margin: 15px;
-            text-align: center;
+            text-align: left;
+          
+            
         }
+       .property-card{
+text-align: left;
 
+        }
         .card:hover {
             transform: scale(1.2);
             box-shadow: 1px 2px 20px rgb(12, 145, 87);
@@ -150,12 +155,14 @@
             margin-bottom: 10px;
         }
 
-        .card p {
-            font-size: 16px;
-            margin: 5px 0;
-            color: #333;
+        .card h6 {
+            text-align: left;
+            margin:15px 0;
+            color: #666363;
         }
-
+.card h3{
+    margin: 10px 0;
+}
         .view {
             margin-top: 10px;
             width: 40%;
@@ -295,7 +302,7 @@
 
         .buttons {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
         }
     </style>
 
@@ -489,7 +496,7 @@ y.innerHTML=`${favcards.length}`
 
             favcards.forEach((item, index) => {
                 const div = document.createElement("div");
-                div.classList.add("card", "p-3", "m-5");
+                div.classList.add("card");
                 div.innerHTML = `
                         <div class="property-card">
                             <img src="${item.images[0]}" alt="${item.title}" />
@@ -498,23 +505,23 @@ y.innerHTML=`${favcards.length}`
                                     <span class="type">${item.type}</span>
                                     <span class="status">${item.status}</span>
                                 </div>
-                                <h2>${item.title}</h2>
-                                <p><i class="fa-solid fa-location-dot"></i> ${item.location}</p>
+                                <h3>${item.title}</h3>
+                                <h6><i class="fa-solid fa-location-dot"></i> ${item.location}</h6>
                                 <div class="details">
                                     <span><i class="fa-solid fa-bed"></i> ${item.bedrooms} Beds</span>
                                     <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
                                     <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
                                 </div>
 
-                               <i class="fa-regular fa-heart fav_btn" onclick="loved(${item.id}, this)"></i>
+                               
 
-                               <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart" onclick="loved(${item.id})" class="fav_btn"></i></div>
+                               <div id='fav'><h3 class="price">$${item.price}</h3> </div>
 
 <div class="buttons">
                                 <button class="view" onclick="ViewDetails(${item.id})">View Details</button>
         <button class="call" style="color: green;"> <i class="fa fa-phone"></i></button>
 </div>
-<p><i class="fa-solid fa-calendar"> </i>  added from one day ago</p>
+<h6><i class="fa-solid fa-calendar"> </i>  added from one day ago</h6>
 
                             </div>
                         </div>`;

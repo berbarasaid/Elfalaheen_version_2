@@ -1,6 +1,10 @@
 let allProducts = [];
 let myArray = JSON.parse(localStorage.getItem("loved")) || [];
+let favcards = JSON.parse(localStorage.getItem("loved")) || [];
+console.log(favcards);
 
+var x = document.getElementById("nn"); 
+x.innerHTML=`${favcards.length}`
 const container = document.getElementById("details");
 const id = localStorage.getItem("viewDetails");
 
