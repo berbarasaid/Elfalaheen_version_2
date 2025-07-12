@@ -59,11 +59,20 @@
             margin: 10px auto;
         }
 
-        .des {
+        .des,
+        .features {
             border: 0.5px solid grey;
             padding: 10px;
             margin: 10px;
             border-radius: 10px;
+        }
+        .main{
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .main div {
+            padding: 10px;
         }
 
         .footer {
@@ -215,67 +224,67 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
         integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
         crossorigin="anonymous"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 
 
     <script>
         const container = document.getElementById("details");
         const id = localStorage.getItem("selectedID");
-        fetch("https://edu-me01.github.io/Json-Data/properties.json")
 
+        fetch("https://edu-me01.github.io/Json-Data/properties.json")
             .then(res => res.json())
             .then(data => {
-                const all = data;
                 const item = data.properties.find(p => p.id == id);
 
-
                 if (item) {
-                    Details(container, item); // take the container and fill with item
-                    Images(item.images);//show the images
+                    showDetails(item);
+                    showImages(item.images);
                     initSwiper();
-                    fetaurs()
+                    showFeatures(item.features);
+                    showDetails2(item);
+
+
                 } else {
                     container.textContent = "not found";
                 }
             });
 
-
-        function Details(container, item) {
+        function showDetails(item) {
             container.innerHTML = `
-                 <p><strong>$</strong> ${item.price.toLocaleString()}</p>
-                <h3 class="thename">${item.slug}</h3>
-                 <p class="locatin"><strong><i class="fa-solid fa-location-dot"></i></strong> ${item.location}</p>
-             <div class="type">
-                 <p>${item.type}</p>
-                 <p>${item.status}</p>
-             </div>
+        <p><strong>$</strong> ${item.price.toLocaleString()}</p>
+        <h3 class="thename">${item.slug}</h3>
+        <p class="locatin"><strong><i class="fa-solid fa-location-dot"></i></strong> ${item.location}</p>
+        <div class="type">
+            <p>${item.type}</p>
+            <p>${item.status}</p>
+        </div>
 
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper" id="imageSlider"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper" id="imageSlider"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
 
-      <div class="alldescriptions">
-        <div class="des">
-        <p><strong>Descreption</strong></p>
-        <div class="description"><p>${item.description}</p></div>
-      </div>
-
-      </div>
-
-     
+        <div class="alldescriptions">
+            <div class="des">
+                <p><strong>Description</strong></p>
+                <div class="description"><p>${item.description}</p></div>
+            </div>
+            <div class="features">
+                <p><strong>Features</strong></p>
+                <div id="featuresContainer"></div>
+            </div>
+        </div>
     `;
         }
 
-        function Images(images) {
+
+        function showImages(images) {
             const slider = document.getElementById("imageSlider");
             images.slice(0, 3).forEach(img => {
                 const slide = document.createElement("div");
                 slide.classList.add("swiper-slide");
-                slide.innerHTML = `<img src="${img}" class="theimge" alt="img">`;
+                slide.innerHTML = `<img src="${img}" class="theimge" alt="صورة">`;
                 slider.appendChild(slide);
             });
         }
@@ -288,19 +297,56 @@
                 },
             });
         }
+        function showFeatures(features) {
+            const featuresContainer = document.getElementById("featuresContainer");
 
+            if (!features || features.length === 0) {
+                featuresContainer.innerHTML = "<p>No features available</p>";
+                return;
+            }
 
+            const ul = document.createElement("ul");
+            ul.style.paddingRight = "20px";
 
+            features.forEach(f => {
+                const li = document.createElement("li");
+                li.textContent = f;
+                ul.appendChild(li);
+            });
 
+            featuresContainer.appendChild(ul);
+        }
 
+        function showDetails2(item) {
+            const extraDetails = document.createElement("div");
+            extraDetails.className = "property des";
 
+            extraDetails.innerHTML = `
+           <div class="main">
+              <div class="sec1">
+                <p><strong>Bedrooms:</strong> ${item.bedrooms}</p>
+        <p><strong>Bathrooms:</strong> ${item.bathrooms}</p>
+        <p><strong>Area:</strong> ${item.squareFeet} sqft</p>
+        <p><strong>Year Built:</strong> ${item.yearBuilt}</p>
+        
+        </div>
+         <div class="sec2">
+            <p><strong>Type:</strong> ${item.type}</p>
+            <p><strong>parking:</strong> ${item.parking}</p>
+          <p><strong>furnished:</strong> ${item.furnished}</p>
+           <p><strong>condition:</strong> ${item.condition}</p>
+           </div>
+            </div>
+    `;
 
-
+            container.appendChild(extraDetails);
+        }
 
 
 
 
     </script>
+
 
 </body>
 
