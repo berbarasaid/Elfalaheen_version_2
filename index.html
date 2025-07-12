@@ -66,7 +66,7 @@
             width: 80%;
             /* height: 300px; */
             display: flex;
-            
+
         }
 
         .swiper-slide {
@@ -182,30 +182,36 @@
             padding: 30px;
             background-color: #e4ffeacf;
         }
-        #featured h1{
+
+        #featured h1 {
             font-family: 'Times New Roman', Times, serif;
             font-weight: bold;
         }
-        #featured{
+
+        #featured {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        #fav{
+
+        #fav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .fav_btn{
+
+        .fav_btn {
             color: rgb(228, 12, 12);
             background-color: #f5ecec;
             padding: 10px;
             border-radius: 20px;
         }
-        .fav_btn:hover{
+
+        .fav_btn:hover {
             transform: scale(0.9);
         }
-        .faved{
+
+        .faved {
             color: #f5ecec;
             background-color: rgb(228, 12, 12);
             padding: 10px;
@@ -263,10 +269,12 @@
     <script src="bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        let allProducts = [];
+let myArray = JSON.parse(localStorage.getItem("loved")) || [];
         fetch("https://edu-me01.github.io/Json-Data/properties.json")
             .then(res => res.json())
             .then(data => {
-                // data=dataset
+                dataa=data
                 const wrapper = document.getElementById("swiperWrapper");
 
                 data.properties.forEach(item => {
@@ -287,7 +295,7 @@
                                     <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
                                     <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
                                 </div>
-                                <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart" onclick="loved(1)" class="fav_btn"></i></div>
+                                <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart" onclick="loved(${item.id})" class="fav_btn"></i></div>
                                 <button onclick="ViewDetails(${item.id})">View Details</button>
                             </div>
                         </div>
@@ -306,76 +314,76 @@
                 });
             });
 
-            // function ViewDetails(Id){
-            //     localStorage.setItem("viewDetails", Id);
-            // }
-            // function loadfav(){
-            //     const fav = localStorage.getItem("fav")
-            //     return fav? JSON.parse(fav) : []
-            // }
-            // function savefavn(fav){
-            //     localStorage.setItem("fav", JSON.stringify(fav))
-            // }
-            // function togglefav(id){
-            //     let favorites = loadfav()
-            //     const index = favorites.indexOf(id)
-            //     if(index > -1){
-            //         favorites.splice(index, 1)
-            //     }
-            //     else{
-            //         favorites.push(id)
-            //     }
-            //     savefavn(fav)
-            //     updatefav_btn()
-            // }
-            // function updatefav_btn(){
-            //     const favorites = loadfav()
-            //     document.querySelectorAll("fav_btn").forEach(btn => {
-            //         const id = parseInt(btn.dataset.id)
-            //         if(favorites.includes(id)){
-            //             btn.classList.add("faved")
-            //             btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
-            //         }
-            //         else{
-            //             btn.classList.remove("faved")
-            //             btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
-            //         }
-            //     })
+        // function ViewDetails(Id){
+        //     localStorage.setItem("viewDetails", Id);
+        // }
+        // function loadfav(){
+        //     const fav = localStorage.getItem("fav")
+        //     return fav? JSON.parse(fav) : []
+        // }
+        // function savefavn(fav){
+        //     localStorage.setItem("fav", JSON.stringify(fav))
+        // }
+        // function togglefav(id){
+        //     let favorites = loadfav()
+        //     const index = favorites.indexOf(id)
+        //     if(index > -1){
+        //         favorites.splice(index, 1)
+        //     }
+        //     else{
+        //         favorites.push(id)
+        //     }
+        //     savefavn(fav)
+        //     updatefav_btn()
+        // }
+        // function updatefav_btn(){
+        //     const favorites = loadfav()
+        //     document.querySelectorAll("fav_btn").forEach(btn => {
+        //         const id = parseInt(btn.dataset.id)
+        //         if(favorites.includes(id)){
+        //             btn.classList.add("faved")
+        //             btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
+        //         }
+        //         else{
+        //             btn.classList.remove("faved")
+        //             btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
+        //         }
+        //     })
 
-            // }
-            function loved(id) {
-    const favItem = allProducts.find(p => p.id === id);
+        // }
+        function loved(id) {
+            const favItem = dataa.properties.find(p => p.id === id);
 
-    if (!favItem) {
-        Swal.fire({
-            title: "Item not found!",
-            icon: "error"
-        });
-        return;
-    }
+            if (!favItem) {
+                Swal.fire({
+                    title: "Item not found!",
+                    icon: "error"
+                });
+                return;
+            }
 
-    const existIndex = myArray.findIndex(p => p.id === id);
+            const existIndex = myArray.findIndex(p => p.id === id);
 
-    if (existIndex === -1) {
+            if (existIndex === -1) {
 
-        myArray.push(favItem);
-        localStorage.setItem("loved", JSON.stringify(myArray));
+                myArray.push(favItem);
+                localStorage.setItem("loved", JSON.stringify(myArray));
 
-        Swal.fire({
-            title: "Added to favorites!",
-            icon: "success"
-        });
-    } else {
-        // موجود، نحذفه
-        myArray.splice(existIndex, 1);
-        localStorage.setItem("loved", JSON.stringify(myArray));
+                Swal.fire({
+                    title: "Added to favorites!",
+                    icon: "success"
+                });
+            } else {
+                // موجود، نحذفه
+                myArray.splice(existIndex, 1);
+                localStorage.setItem("loved", JSON.stringify(myArray));
 
-        Swal.fire({
-            title: "Removed from favorites!",
-            icon: "warning"
-        });
-    }
-}
+                Swal.fire({
+                    title: "Removed from favorites!",
+                    icon: "warning"
+                });
+            }
+        }
     </script>
 </body>
 
