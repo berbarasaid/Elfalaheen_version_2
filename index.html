@@ -304,7 +304,7 @@
                                     <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
                                     <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
                                 </div>
-                                <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart" onclick="loved(${item.id})" class="fav_btn"></i></div>
+                                <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart ${favClass}" onclick="loved(this,${item.id})"></i></div>
 
                                 <button onclick="ViewDetails(${item.id})">View Details</button>
                             </div>
@@ -314,19 +314,23 @@
                 });
 
 
-                new Swiper(".mySwiper", {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                });
-            });
+                const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+swiper.update(); // ✅ ده اللي بيخلّي Swiper "يحدّث" كل الكروت المعروضة بشكل صحيح
+
         function ViewDetails(Id){
             localStorage.setItem("viewDetails", Id);
             window.location.href = "details.html"; //
         }
+            });
+// بعد إنشاء السلايدر:
+
         
 
         
@@ -367,7 +371,7 @@
         //     })
 
         // }
-        function loved(id) {
+        function loved(btn,id) {
             const favItem = allProducts.find(p => p.id === id);
 
             if (!favItem) {
@@ -389,6 +393,7 @@
                     title: "Added to favorites!",
                     icon: "success"
                 });
+                btn.classList.remove("fav_btn");
                 btn.classList.add("faved")
             } else {
                 // موجود، نحذفه
@@ -400,6 +405,7 @@
                     icon: "warning"
                 });
                 btn.classList.remove("faved")
+                btn.classList.add("fav_btn");
             }
         }
     </script>
