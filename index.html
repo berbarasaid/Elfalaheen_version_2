@@ -287,7 +287,7 @@
                                     <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
                                     <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
                                 </div>
-                                <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart" onclick="fav(1)" class="fav_btn"></i></div>
+                                <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart" onclick="loved(1)" class="fav_btn"></i></div>
                                 <button onclick="ViewDetails(${item.id})">View Details</button>
                             </div>
                         </div>
@@ -306,43 +306,76 @@
                 });
             });
 
-            function ViewDetails(Id){
-                localStorage.setItem("viewDetails", Id);
-            }
-            function loadfav(){
-                const fav = localStorage.getItem("fav")
-                return fav? JSON.parse(fav) : []
-            }
-            function savefavn(fav){
-                localStorage.setItem("fav", JSON.stringify(fav))
-            }
-            function togglefav(id){
-                let favorites = loadfav()
-                const index = favorites.indexOf(id)
-                if(index > -1){
-                    favorites.splice(index, 1)
-                }
-                else{
-                    favorites.push(id)
-                }
-                savefavn(fav)
-                updatefav_btn()
-            }
-            function updatefav_btn(){
-                const favorites = loadfav()
-                document.querySelectorAll("fav_btn").forEach(btn => {
-                    const id = parseInt(btn.dataset.id)
-                    if(favorites.includes(id)){
-                        btn.classList.add("faved")
-                        btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
-                    }
-                    else{
-                        btn.classList.remove("faved")
-                        btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
-                    }
-                })
+            // function ViewDetails(Id){
+            //     localStorage.setItem("viewDetails", Id);
+            // }
+            // function loadfav(){
+            //     const fav = localStorage.getItem("fav")
+            //     return fav? JSON.parse(fav) : []
+            // }
+            // function savefavn(fav){
+            //     localStorage.setItem("fav", JSON.stringify(fav))
+            // }
+            // function togglefav(id){
+            //     let favorites = loadfav()
+            //     const index = favorites.indexOf(id)
+            //     if(index > -1){
+            //         favorites.splice(index, 1)
+            //     }
+            //     else{
+            //         favorites.push(id)
+            //     }
+            //     savefavn(fav)
+            //     updatefav_btn()
+            // }
+            // function updatefav_btn(){
+            //     const favorites = loadfav()
+            //     document.querySelectorAll("fav_btn").forEach(btn => {
+            //         const id = parseInt(btn.dataset.id)
+            //         if(favorites.includes(id)){
+            //             btn.classList.add("faved")
+            //             btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
+            //         }
+            //         else{
+            //             btn.classList.remove("faved")
+            //             btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
+            //         }
+            //     })
 
-            }
+            // }
+            function loved(id) {
+    const favItem = allProducts.find(p => p.id === id);
+
+    if (!favItem) {
+        Swal.fire({
+            title: "Item not found!",
+            icon: "error"
+        });
+        return;
+    }
+
+    const existIndex = myArray.findIndex(p => p.id === id);
+
+    if (existIndex === -1) {
+
+        myArray.push(favItem);
+        localStorage.setItem("loved", JSON.stringify(myArray));
+
+        Swal.fire({
+            title: "Added to favorites!",
+            icon: "success"
+        });
+    } else {
+        // موجود، نحذفه
+        myArray.splice(existIndex, 1);
+        localStorage.setItem("loved", JSON.stringify(myArray));
+
+        Swal.fire({
+            title: "Removed from favorites!",
+            icon: "warning"
+        });
+    }
+}
     </script>
 </body>
 
