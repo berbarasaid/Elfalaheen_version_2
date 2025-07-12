@@ -39,16 +39,11 @@
         .details {
             display: flex;
             justify-content: space-between;
-
-            width:75%;
-
-          
-
+            width: 65%;
             background-color: rgba(187, 237, 208, 0.479);
             padding: 20px;
             border-radius: 6px;
             margin: 30px;
-            padding: 20px 60px;
         }
 
         body {
@@ -188,85 +183,10 @@
         }
 
 
-
-.text-center p {
-    font-size: 18px;
-    margin-top: 10px;
-}
-    
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.footer {
-    width: 100%;
-  background-color: #313439;
-  color: white;
-  padding: 40px 20px;
-  border-radius: 10px;
-}
-
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.footer-section {
-  flex: 1 1 200px;
-  margin: 20px;
-}
-
-.footer-section h3,
-.footer-section h4 {
-  margin-bottom: 15px;
-}
-
-.footer-section p,
-.footer-section a {
-  color: white;
-  text-decoration: none;
-  margin: 5px 0;
-  display: block;
-  transition: color 0.3s;
-}
-
-.footer-section a:hover,
-.footer-section p:hover,
-.footer-section i:hover,
-.footer-bottom span:hover {
-  color: rgb(14, 136, 20);
-}
-
-.social-icons a {
-  margin-right: 10px;
-  font-size: 18px;
-  display: inline-block;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  border-top: 1px solid #444;
-  padding-top: 15px;
-  font-size: 14px;
-}
-
-.footer-bottom span {
-  color: white;
-  transition: color 0.3s;
-}
-
         .text-center p {
             font-size: 18px;
             margin-top: 10px;
         }
-
 
 
         body {
@@ -333,6 +253,14 @@ body {
             color: white;
             transition: color 0.3s;
         }
+        .navbar-nav a:hover {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            transition: all 0.3s;
+            color: rgb(31, 159, 84) !important;
+
+        }
+
     </style>
 
 
@@ -351,14 +279,14 @@ body {
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"
                             style="color: #ff0000;"></i></a>
-                    <a class="nav-link disabled" aria-disabled="true">contact</a>
+                    <a  class="nav-link active" href="contactUs.html">contact</a>
                     <div>
-                        <a class="nav-link" href="#" style="color: rgb(9, 182, 55); padding-bottom: 0; margin-bottom: 0cap;">Favourite</a>
-                        <a class="nav-link" href="#" style="color: rgb(9, 182, 55); padding-top: 0; margin-top: 0;">_______</a>
+                        <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">Favourite</a>
+                        <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">________</a>
                     </div>
                     <a class="nav-link" href="#"> properties</a>
                     <a class="nav-link disabled" aria-disabled="true"></a>
-                    <a class="nav-link disabled" aria-disabled="true">Home</a>
+                    <a   class="nav-link active"  href="index.html">Home</a>
                 </div>
             </div>
         </div>
