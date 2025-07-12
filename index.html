@@ -196,9 +196,18 @@
             justify-content: space-between;
             align-items: center;
         }
-        #fav i{
+        .fav_btn{
             color: rgb(228, 12, 12);
             background-color: #f5ecec;
+            padding: 10px;
+            border-radius: 20px;
+        }
+        .fav_btn:hover{
+            transform: scale(0.9);
+        }
+        .faved{
+            color: #f5ecec;
+            background-color: rgb(228, 12, 12);
             padding: 10px;
             border-radius: 20px;
         }
@@ -257,6 +266,7 @@
         fetch("https://edu-me01.github.io/Json-Data/properties.json")
             .then(res => res.json())
             .then(data => {
+                // data=dataset
                 const wrapper = document.getElementById("swiperWrapper");
 
                 data.properties.forEach(item => {
@@ -277,7 +287,7 @@
                                     <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
                                     <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
                                 </div>
-                                <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart"></i></div>
+                                <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart" onclick="fav(1)" class="fav_btn"></i></div>
                                 <button onclick="ViewDetails(${item.id})">View Details</button>
                             </div>
                         </div>
@@ -298,6 +308,40 @@
 
             function ViewDetails(Id){
                 localStorage.setItem("viewDetails", Id);
+            }
+            function loadfav(){
+                const fav = localStorage.getItem("fav")
+                return fav? JSON.parse(fav) : []
+            }
+            function savefavn(fav){
+                localStorage.setItem("fav", JSON.stringify(fav))
+            }
+            function togglefav(id){
+                let favorites = loadfav()
+                const index = favorites.indexOf(id)
+                if(index > -1){
+                    favorites.splice(index, 1)
+                }
+                else{
+                    favorites.push(id)
+                }
+                savefavn(fav)
+                updatefav_btn()
+            }
+            function updatefav_btn(){
+                const favorites = loadfav()
+                document.querySelectorAll("fav_btn").forEach(btn => {
+                    const id = parseInt(btn.dataset.id)
+                    if(favorites.includes(id)){
+                        btn.classList.add("faved")
+                        btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
+                    }
+                    else{
+                        btn.classList.remove("faved")
+                        btn.innerHTML = `<i class="fa-regular fa-heart" onclick="fav(1)"></i>`
+                    }
+                })
+
             }
     </script>
 </body>
