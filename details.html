@@ -97,13 +97,13 @@
 
     <script src="details.js">
 
-
     </script>
+    
+            function ViewDetails(id) {
+                localStorage.setItem("viewDetails", id);
+                window.location.href = "view.html"; // أو اسم صفحة التفاصيل بتاعتك
+            }
 
-function ViewDetails(id) {
-    localStorage.setItem("viewDetails", id);
-    window.location.href = "view.html"; // أو اسم صفحة التفاصيل بتاعتك
-}
 
 </body>
 

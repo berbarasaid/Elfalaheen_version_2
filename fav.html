@@ -35,8 +35,14 @@
             color: white;
             width: 100%;
         }
+        button{
+            transition: .5s;
+        }
+        button:hover{
+            transform: scale(.9);
+        }
 
-        .details {
+        .detail {
             display: flex;
             justify-content: space-between;
             width: 65%;
@@ -45,6 +51,11 @@
             
             border-radius: 6px;
             margin: 30px;
+        }
+        .details span{
+            background-color: rgba(187, 237, 208, 0.479);
+            padding: 5px;
+            border-radius: 10px;
         }
 
         body {
@@ -56,6 +67,10 @@
         .vew {
             display: flex;
             gap: 20px;
+            transition: .5s;
+        }
+        .vew:hover{
+            transform: scale(1.2);
         }
 
         .vew i {
@@ -124,7 +139,7 @@
 
         .card:hover {
             transform: scale(1.2);
-            box-shadow: 1px 2px 20px rgb(121, 2, 105);
+            box-shadow: 1px 2px 20px rgb(12, 145, 87);
         }
 
         .card img {
@@ -287,6 +302,7 @@
 </head>
 
 <body>
+    
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="color: rgb(27, 138, 73) !important; margin-left: 40px;"><i
@@ -297,7 +313,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup" dir="rtl">
                 <div class="navbar-nav">
+                    <a class="8nav-link active" id="nn" style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
+
                     <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"
+
                             style="color: #ff0000;"></i></a>
                     <a class="nav-link active" href="contactUs.html">contact</a>
                     <div>
@@ -305,7 +324,6 @@
                         <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">________</a>
                     </div>
                     <a class="nav-link" href="#"> properties</a>
-                    <a class="nav-link disabled" aria-disabled="true"></a>
                     <a class="nav-link active" href="index.html">Home</a>
                 </div>
             </div>
@@ -315,7 +333,7 @@
         <h1>My Favourite properties</h1>
         <p>Brouse the properties you've saved to your Favourite list</p>
     </div>
-    <div class="details">
+    <div class="detail">
         <div class="vew">
             <div><i class="fa-solid fa-heart" style="color: rgb(27, 138, 73) !important;"></i></div>
             <div>
@@ -402,11 +420,15 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
+       
         const container = document.getElementById("favcards");
         let favcards = JSON.parse(localStorage.getItem("loved")) || [];
         console.log(favcards);
 
-
+var x = document.getElementById("nn"); 
+x.innerHTML=`${favcards.length}`
+var y = document.getElementsByClassName("num")[0]; 
+y.innerHTML=`${favcards.length}`
         function trips() {
             container.innerHTML = "";
             container.classList.add("container");

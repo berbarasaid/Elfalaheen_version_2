@@ -220,7 +220,24 @@
   transition: background-color 0.3s ease;
   position: relative;
 }
-
+#vv{
+  color: #fff;
+}
+p:hover{color: green;
+transform: scale(1.2);}
+p{
+  transition: .5s;
+}
+i:hover{color: green;
+transform: scale(1.2);}
+i{
+  transition: .5s;
+}
+h5:hover{color: rgb(5, 55, 5);
+transform: scale(1.2);}
+h5{
+  transition: .5s;
+}
 .faq-question::after {
   content: "\25BC"; /* ▼ */
   font-size: 14px;
@@ -272,6 +289,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup" dir="rtl">
                 <div class="navbar-nav">
+                  <a class="8nav-link active" id="vv" style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
+
                     <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"
                             style="color: #ff0000;"></i></a>
                             <div>
@@ -470,6 +489,10 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+        let favcards = JSON.parse(localStorage.getItem("loved")) || [];
+
+  var x = document.getElementById("vv"); 
+x.innerHTML=`${favcards.length}`
     const questions = document.querySelectorAll('.faq-question');
   
     questions.forEach(q => {
