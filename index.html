@@ -98,7 +98,7 @@
         }
 
         .property-card {
-            width: 100%;
+            /* width: 100%; */
             height: auto;
             background: #fff;
             border-radius: 5px;
@@ -189,7 +189,7 @@
             justify-content: center;
             align-items: center;
             gap: 50px;
-            padding: 30px;
+            padding: 0 30px;
 
         }
 
@@ -202,6 +202,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 30px;
         }
 
         #fav {
@@ -268,6 +269,74 @@
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-weight: bold;
         }
+
+        #p {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            padding: 0 200px;
+        }
+
+        .footer {
+            background-color: #313439;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1 1 200px;
+            margin: 20px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover,
+        .footer-section p:hover,
+        .footer-section i:hover,
+        .footer-bottom span:hover {
+            color: rgb(14, 136, 20);
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            font-size: 14px;
+        }
+
+        .footer-bottom span {
+            color: white;
+            transition: color 0.3s;
+        }
     </style>
 </head>
 <header>
@@ -288,7 +357,7 @@
                             style="color: #ff0000;"></i></a>
                     <a class="nav-link active" href="contactUs.html">contact</a>
                     <div>
-                        <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">Favourite</a>
+                        <a class="nav-link" href="fav.html" style="color: rgb(9, 182, 55);">Favourite</a>
                         <!-- <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">________</a> -->
                     </div>
                     <a class="nav-link" href="#"> properties</a>
@@ -358,13 +427,62 @@
 
     </div>
 
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Luxury Estates</h3>
+                <p>Your trusted partner in finding the perfect home. We specialize in luxury real estate and exceptional
+                    service.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Properties</a></li>
+                    <li><a href="#">Favorites</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Property Types</h4>
+                <ul>
+                    <li><a href="#">Apartments</a></li>
+                    <li><a href="#">Villas</a></li>
+                    <li><a href="#">Duplex</a></li>
+                    <li><a href="#">Penthouse</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <p><i class="fa fa-map-marker"></i> 123 Luxury Street, City, Country</p>
+                <p><i class="fa fa-phone"></i> +1 234 567 8900</p>
+                <p><i class="fa fa-envelope"></i> info@luxuryestates.com</p>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="footer-bottom">
+            <p>© 2024 Luxury Estates. جميع الحقوق محفوظة.</p>
+            <p>Designed with <span><i class="fa-solid fa-heart" style="color: #ff0000;"></i></a></span> for you</p>
+        </div>
+    </footer>
     <script src="bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        const container = document.getElementById("favcards");
+        // const container = document.getElementById("favcards");
         let favcards = JSON.parse(localStorage.getItem("loved")) || [];
-        console.log(favcards);
+        // console.log(favcards);
 
         var x = document.getElementById("nn");
         x.innerHTML = `${favcards.length}`
@@ -408,13 +526,13 @@
                 });
                 const parant = document.getElementById("p");
 
-        allProducts.splice(0,4).forEach(item => {
-            const card = document.createElement("div");
-            card.classList.add("property-card");
-            const isFaved = myArray.some(p => p.id === item.id);
-            const favClass = isFaved ? "faved" : "fav_btn";
+                allProducts.slice(0, 5).forEach(item => {
+                    const card = document.createElement("div");
+                    card.classList.add("property-card");
+                    const isFaved = myArray.some(p => p.id === item.id);
+                    const favClass = isFaved ? "faved" : "fav_btn";
 
-            card.innerHTML = `
+                    card.innerHTML = `
         <img src="${item.images[0]}" alt="${item.title}" />
         <div class="property-info">
             <div class="tags">
@@ -435,8 +553,8 @@
             <button onclick="ViewDetails(${item.id})">View Details</button>
         </div>
     `;
-            parant.appendChild(card);
-        });
+                    parant.appendChild(card);
+                });
 
                 const swiper = new Swiper(".mySwiper", {
                     slidesPerView: 3,
@@ -448,7 +566,7 @@
                 });
                 swiper.update();
 
-                
+
             });
 
         function loved(btn, id) {
@@ -518,11 +636,11 @@
         //     `;
         //     parant.appendChild(a);
         // });
-        
+
         function ViewDetails(Id) {
-                    localStorage.setItem("viewDetails", Id);
-                    window.location.href = "details.html"; //
-                }
+            localStorage.setItem("viewDetails", Id);
+            window.location.href = "details.html"; //
+        }
     </script>
 </body>
 
