@@ -153,7 +153,7 @@ function showFeatures(features) {
 
 function showDetails2(item) {
     const extraDetails = document.createElement("div");
-    extraDetails.className = "property des";
+    extraDetails.className = "property-des";
      extraDetails.setAttribute("data-aos", "fade-right"); // من اليمين
     extraDetails.setAttribute("data-aos-duration", "800"); // المدة
     extraDetails.setAttribute("data-aos-delay", "200"); // تأخير (اختياري)

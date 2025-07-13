@@ -60,16 +60,27 @@ html, body {
 .theimge:hover{
        opacity: 0.7;
 }
-
+#featuresContainer{
+    box-shadow: 2px 3px 15px rgb(137, 137, 137);
+    padding: 10px;
+    border-radius: 10px;
+}
+.property-des{
+     box-shadow: 2px 3px 15px rgb(137, 137, 137);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+}
 #featuresContainer ul {
     list-style: none;
     padding-right: 20px;
-    box-shadow: 1px 2px 10px lightgray;
+    /* box-shadow: 1px 2px 10px lightgray; */
     border-radius: 10px;padding: 10px;
     transition: all 0.5s ease-in-out;
+    
 }
 #featuresContainer ul:hover{
-    box-shadow: 1px 2px 15px lightgray;
+    /* box-shadow: 1px 2px 15px lightgray; */
     transform: scale(1.01);
 
 }
@@ -83,6 +94,7 @@ html, body {
     color: green !important;
     margin-left: 5px;
     margin-right: 8px;
+    
 }
     
 
@@ -215,6 +227,9 @@ html, body {
 .alldescriptions {
     flex: 2;
     min-width: 300px;
+    box-shadow: 2px 3px 15px rgb(137, 137, 137);
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .theform {
@@ -278,6 +293,9 @@ textarea:focus {
     border: 0.5px solid lightgray;
     padding: 10px;
     margin: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 15px rgb(137, 137, 137);
+    padding: 10px;
     border-radius: 10px;
 }
 .bac{
