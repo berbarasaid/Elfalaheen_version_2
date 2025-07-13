@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="bootstrap.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
@@ -382,11 +382,10 @@
         </div>
     </div>
 
-<<<<<<< Updated upstream
-    <div id="featuredP" >
-=======
-    <div id="featuredP">
->>>>>>> Stashed changes
+    <div id="featuredP"   data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0">
         <div id="featured"  data-aos="fade-up">
             <h1>Featured Properties</h1>
             <p>Explore our handpicked selection of premium properties</p>
@@ -398,8 +397,6 @@
             <div class="swiper-pagination"></div>
         </div>
     </div>
-
-<<<<<<< Updated upstream
 
 
     <div id="numss">
@@ -425,8 +422,11 @@
         </div>
     </div>
 
-    <div>
-        <div id="featured" data-aos="fade-up">
+    <div   data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0">
+        <div id="featured"  data-aos="fade-up">
             <h1>Recent Properities</h1>
             <p>Latest additiomns to our property portfolio</p>
         </div>
@@ -483,26 +483,14 @@
             <p>Designed with <span><i class="fa-solid fa-heart" style="color: #ff0000;"></i></a></span> for you</p>
         </div>
     </footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-=======
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
->>>>>>> Stashed changes
+    <script src="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.js"></script>
     <script src="bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-<<<<<<< Updated upstream
 
+         AOS.init();
         // const container = document.getElementById("favcards");
-
-=======
->>>>>>> Stashed changes
-           AOS.init();
-
-        const container = document.getElementById("favcards");
-
         let favcards = JSON.parse(localStorage.getItem("loved")) || [];
         // console.log(favcards);
 
