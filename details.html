@@ -8,6 +8,8 @@
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
     <link rel="stylesheet" href="details.css">
 </head>
 
@@ -24,14 +26,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup" dir="rtl">
                 <div class="navbar-nav">
-                    <a class="8nav-link active" id="nn" style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
+                    <a class="8nav-link active" id="nn"
+                        style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
 
                     <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"
-
                             style="color: #ff0000;"></i></a>
                     <a class="nav-link active" href="contactUs.html">contact</a>
                     <div>
-                        <a class="nav-link" href="fav.html" >Favourite</a>
+                        <a class="nav-link" href="fav.html">Favourite</a>
                     </div>
                     <a class="nav-link" href="#"> properties</a>
                     <a class="nav-link active" href="index.html">Home</a>
@@ -39,6 +41,7 @@
             </div>
         </div>
     </nav>
+
 
 
     <div id="details"></div>
@@ -103,14 +106,15 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <script src="details.js">
+    <script src="details.js"></script>
 
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
     </script>
-    
-            function ViewDetails(id) {
-                localStorage.setItem("viewDetails", id);
-                window.location.href = "view.html"; // أو اسم صفحة التفاصيل بتاعتك
-            }
+
+
 
 
 </body>
