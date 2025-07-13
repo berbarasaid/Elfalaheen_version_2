@@ -74,7 +74,7 @@ function showDetails(item) {
 
     const formDiv = document.createElement("div");
     formDiv.className = "theform";
-   
+
     formDiv.innerHTML = `
         <form >
             <h2>Contact Agent</h2>
@@ -85,14 +85,14 @@ function showDetails(item) {
                     <p>Senior Real state Agent</p>
                 </div>
             </div>
-            <div class="inf"><p>Your Name*</p><input type="text" placeholder=" Your Name" /></div>
-            <div class="inf"><p>Email*</p><input type="email" placeholder=" Your Email"/></div>
-            <div class="inf"><p>Phone*</p><input type="number" placeholder=" Your Phone"/></div>
+            <div class="inf"><p>Your Name*</p><input type="text" placeholder=" Your Name" required="required"/></div>
+            <div class="inf"><p>Email*</p><input type="email" placeholder=" Your Email" required="required"/></div>
+            <div class="inf"><p>Phone*</p><input type="number" placeholder=" Your Phone" required="required"/></div>
             <div class="inf"><p>Message*</p><textarea placeholder=" Your Message"></textarea></div>
             <button type="submit" class="sub btn btn-success mt-2"><i class="fa-solid fa-paper-plane"></i> Send</button>
         </form>
     `;
-    
+
 
     const wrapper = document.createElement("div");
     wrapper.className = "description-and-form";
@@ -109,7 +109,7 @@ function showDetails(item) {
     showFeatures(item.features);
     showDetails2(item);
     details3();
-   
+
 
 }
 
@@ -134,8 +134,8 @@ function initSwiper() {
 
 function showFeatures(features) {
     const featuresContainer = document.getElementById("featuresContainer");
-    
-    
+
+
     if (!features || features.length === 0) {
         featuresContainer.innerHTML = "<p>No features available</p>";
         return;
@@ -147,30 +147,31 @@ function showFeatures(features) {
         ul.appendChild(li);
     });
     featuresContainer.appendChild(ul);
-    
+
 }
 
 
 function showDetails2(item) {
     const extraDetails = document.createElement("div");
-    extraDetails.className = "property des";
-     extraDetails.setAttribute("data-aos", "fade-right"); // من اليمين
+    extraDetails.className = "property-des"; extraDetails.className = "property-des";
+
+    extraDetails.setAttribute("data-aos", "fade-right"); // من اليمين
     extraDetails.setAttribute("data-aos-duration", "800"); // المدة
     extraDetails.setAttribute("data-aos-delay", "200"); // تأخير (اختياري)
     extraDetails.innerHTML = `
-        <p class="text"><strong>Property Details</strong></p>
+        <p class="text"><strong class="thetext ">Property Details</strong></p>
         <div class="main">
             <div class="sec1">
-                <p><strong>Bedrooms:</strong> ${item.bedrooms}</p>
-                <p><strong>Bathrooms:</strong> ${item.bathrooms}</p>
-                <p><strong>Area:</strong> ${item.squareFeet} sqft</p>
-                <p><strong>Year Built:</strong> ${item.yearBuilt}</p>
+                <p><strong class="strong">Bedrooms:</strong> ${item.bedrooms}</p>
+                <p><strong class="strong">Bathrooms:</strong> ${item.bathrooms}</p>
+                <p><strong class="strong">Area:</strong> ${item.squareFeet} sqft</p>
+                <p><strong class="strong">Year Built:</strong> ${item.yearBuilt}</p>
             </div>
             <div class="sec2">
-                <p><strong>Parking:</strong> ${item.parking}</p>
-                <p><strong>Furnished:</strong> ${item.furnished}</p>
-                <p class=""><strong>Type:</strong> ${item.type}</p>
-            <p class=""><strong>Condition:</strong> ${item.condition}</p>
+                <p><strong class="strong">Parking:</strong> ${item.parking}</p>
+                <p><strong class="strong">Furnished:</strong> ${item.furnished}</p>
+                <p class=""><strong class="strong">Type:</strong> ${item.type}</p>
+            <p class=""><strong class="strong">Condition:</strong> ${item.condition}</p>
             </div>
         </div>
     `;
