@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< Updated upstream
 
 <head>
     <meta charset="UTF-8" />
@@ -352,8 +353,177 @@
     <h1 style="text-align: center;">recently view</h1>
     <div id="pp">
         
-    </div>
+=======
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Properties Page</title>
+  <link rel="stylesheet" href="./properties.css">
+  <link rel="stylesheet" href="./bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    #fav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fav_btn {
+            color: rgb(228, 12, 12);
+            background-color: #f5ecec;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .fav_btn:hover {
+            transform: scale(0.9);
+        }
+
+        .faved {
+            color: #f5ecec;
+            background-color: rgb(228, 12, 12);
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .faved:hover {
+            transform: scale(0.9);
+        }
+    .swiper {
+      padding: 30px;
+    }
+
+    .swiper-slide {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer {
+      background-color: #313439;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-section {
+      flex: 1 1 200px;
+      margin: 20px;
+    }
+
+    .footer-section h3,
+    .footer-section h4 {
+      margin-bottom: 15px;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: white;
+      text-decoration: none;
+      margin: 5px 0;
+      display: block;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover,
+    .footer-section p:hover,
+    .footer-section i:hover,
+    .footer-bottom span:hover {
+      color: rgb(14, 136, 20);
+    }
+
+    .social-icons a {
+      margin-right: 10px;
+      font-size: 18px;
+      display: inline-block;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      border-top: 1px solid #444;
+      padding-top: 15px;
+      font-size: 14px;
+    }
+
+    .footer-bottom span {
+      color: white;
+      transition: color 0.3s;
+    }
+
+    .first {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      background-color: rgb(27, 138, 73);
+      margin-top: 20px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: white;
+      width: 100%;
+      padding: 20px;
+    }
+
+    form {
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px;
+      background-color: rgba(187, 237, 208, 0.479);
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    form select,
+    form input[type="search"] {
+      width: 200px;
+      border: 1.5px solid rgba(173, 230, 215, 0.612);
+      height: 40px;
+      padding: 10px;
+    }
+    .img{
+        width: 100%;
+        height: 300px;
+    }
+   
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color: rgb(27, 138, 73) !important; margin-left: 40px;"><i class="fa-solid fa-house"></i> Luxury Estate</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup" dir="rtl">
+        <div class="navbar-nav">
+          <a class="nav-link active" id="nn"></a>
+          <a class="nav-link active" href="#"><i class="fa-solid fa-heart" style="color: #ff0000;"></i></a>
+          <a class="nav-link active" href="contactUs.html">contact</a>
+          <a class="nav-link" href="fav.html">Favourite</a>
+          <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">properties</a>
+          <a class="nav-link active" href="index.html">Home</a>
+        </div>
+      </div>
+>>>>>>> Stashed changes
+    </div>
+  </nav>
+
+<<<<<<< Updated upstream
 
     <footer class="footer">
         <div class="footer-container">
@@ -575,3 +745,142 @@
 </body>
 
 </html>
+=======
+  <div class="first">
+    <h1>Our Properties</h1>
+    <p>Discover our exclusive collection of premium properties</p>
+  </div>
+
+  <form>
+    <div>
+      <p>Search</p>
+      <input type="search" placeholder="Search properties...">
+    </div>
+    <div>
+      <p>Property Type</p>
+      <select id="prop">
+        <option value="all">All Properties</option>
+        <option value="penthouse">Penthouse</option>
+        <option value="villa">Villa</option>
+        <option value="apartment">Apartment</option>
+        <option value="townhouse">Townhouse</option>
+      </select>
+    </div>
+    <div>
+      <p>Min Price</p>
+      <select id="minprice">
+        <option value="0">Min Price</option>
+        <option value="850000">850000</option>
+        <option value="1200000">1200000</option>
+        <option value="2500000">2500000</option>
+      </select>
+    </div>
+    <div>
+      <p>Max Price</p>
+      <select id="maxprice">
+        <option value="9999999">Max Price</option>
+        <option value="2500000">2500000</option>
+        <option value="3200000">3200000</option>
+        <option value="4500000">4500000</option>
+      </select>
+    </div>
+    <div>
+      <p>Sort By</p>
+      <select id="sort">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+      </select>
+    </div>
+  </form>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper" id="swiperWrapper"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <footer class="footer">
+    <!-- ... نفس الكود بتاع الفوتر ... -->
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    const wrapper = document.getElementById("swiperWrapper");
+    const nn = document.getElementById("nn");
+    let favcards = JSON.parse(localStorage.getItem("loved")) || [];
+    nn.textContent = favcards.length;
+
+    let allProducts = [];
+    fetch("https://edu-me01.github.io/Json-Data/properties.json")
+      .then(res => res.json())
+      .then(data => {
+        allProducts = data.properties;
+        data.properties.forEach(item => {
+          const slide = document.createElement("div");
+          slide.className = "swiper-slide";
+          const isFaved = favcards.some(p => p.id === item.id);
+          const favClass = isFaved ? "faved" : "fav_btn";
+
+          slide.innerHTML = `
+            <div class="property-card">
+              <img src="${item.images[0]}" alt="${item.title}"  class ="img"/>
+              <div class="property-info">
+                <div class="tags">
+                  <span class="type">${item.type}</span>
+                  <span class="status">${item.status}</span>
+                </div>
+                <h2>${item.title}</h2>
+                <h3><i class="fa-solid fa-location-dot"></i> ${item.location}</h3>
+                <div class="details">
+                  <span><i class="fa-solid fa-bed"></i> ${item.bedrooms} Beds</span>
+                  <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
+                  <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
+                </div>
+                <div class="buttons">
+                <div id='fav'><h1 class="price">$${item.price}</h1> 
+                    <button class="fav_btn" onclick="ViewDetails(${item.id}) ><i class="fa-solid fa-heart"></i></button></div>
+                <button onclick="ViewDetails(${item.id})">View Details</button>
+              </div></div>
+            </div>`;
+
+          wrapper.appendChild(slide);
+        });
+
+        new Swiper(".mySwiper", {
+          slidesPerView: 3,
+          spaceBetween: 20,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+      });
+
+    function loved(btn, id) {
+      const favItem = allProducts.find(p => p.id === id);
+      const existIndex = favcards.findIndex(p => p.id === id);
+
+      if (existIndex === -1) {
+        favcards.push(favItem);
+        btn.classList.add("faved");
+        Swal.fire("Added to favorites!", "", "success");
+      } else {
+        favcards.splice(existIndex, 1);
+        btn.classList.remove("faved");
+        Swal.fire("Removed from favorites!", "", "info");
+      }
+
+      localStorage.setItem("loved", JSON.stringify(favcards));
+      nn.textContent = favcards.length;
+    }
+
+    function ViewDetails(Id) {
+      localStorage.setItem("viewDetails", Id);
+      window.location.href = "details.html";
+    }
+  </script>
+</body>
+
+</html>
+>>>>>>> Stashed changes
