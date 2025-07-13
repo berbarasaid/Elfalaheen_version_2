@@ -1,0 +1,147 @@
+.div1{
+    border-radius: 10px;
+    text-align: center;
+}
+
+.select{
+    background-color: white;
+    width: 85%;
+    display: flex;
+    justify-content: space-around;
+   margin: auto;
+    grid:30px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px  auto auto auto ;
+}
+.select select{
+    padding: 5px;
+    border-radius: 10px;
+    border:1 solid #eee ;
+}
+.select input{
+    border-radius: 10px;
+    border:1 solid #eee ;
+    padding: 5px;
+}
+#card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+.classe {
+  width: 300px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.classe:hover {
+  transform: scale(1.03);
+}
+
+.classe img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.classe h3 {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.classe p {
+  margin: 0 10px;
+  color: #333;
+}
+
+.classe span {
+  display: inline-block;
+  margin: 5px 10px;
+  color: #555;
+}
+
+.classe h2 {
+  margin: 10px;
+}
+
+.classe button {
+  margin: 10px 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #009688;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.classe button:hover {
+  background-color: #00796b;
+}
+
+.footer {
+  background-color: #313439;
+  color: white;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 20px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 15px;
+}
+
+.footer-section p,
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  margin: 5px 0;
+  display: block;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover,
+.footer-section p:hover,
+.footer-section i:hover,
+.footer-bottom span:hover {
+  color: rgb(14, 136, 20);
+}
+
+.social-icons a {
+  margin-right: 10px;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  font-size: 14px;
+}
+
+.footer-bottom span {
+  color: white;
+  transition: color 0.3s;
+}
