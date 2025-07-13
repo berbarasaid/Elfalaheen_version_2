@@ -1,3 +1,4 @@
+
 let allProducts = [];
 let myArray = JSON.parse(localStorage.getItem("loved")) || [];
 let favcards = [...myArray];
@@ -34,6 +35,8 @@ function showDetails(item) {
     favBtn.onclick = () => loved(item.id);
 
     const priceAndFavDiv = document.createElement("div");
+    priceAndFavDiv.setAttribute("data-aos", "fade-up");
+    priceAndFavDiv.setAttribute("data-aos-duration", "800");
     priceAndFavDiv.className = "d-flex justify-content-between align-items-center gap-3 mb-3 flex-wrap";
     priceAndFavDiv.innerHTML = `
         <div class="extra-info text-start">
@@ -71,8 +74,9 @@ function showDetails(item) {
 
     const formDiv = document.createElement("div");
     formDiv.className = "theform";
+   
     formDiv.innerHTML = `
-        <form>
+        <form >
             <h2>Contact Agent</h2>
             <div class="photocontainer">
                 <img src="shutterstock_smile-or-remove-your-photo-scaled.jpg" alt="person" class="owner">
@@ -88,6 +92,7 @@ function showDetails(item) {
             <button type="submit" class="sub btn btn-success mt-2"><i class="fa-solid fa-paper-plane"></i> Send</button>
         </form>
     `;
+    
 
     const wrapper = document.createElement("div");
     wrapper.className = "description-and-form";
@@ -104,6 +109,8 @@ function showDetails(item) {
     showFeatures(item.features);
     showDetails2(item);
     details3();
+   
+
 }
 
 function showImages(images) {
@@ -127,6 +134,8 @@ function initSwiper() {
 
 function showFeatures(features) {
     const featuresContainer = document.getElementById("featuresContainer");
+    
+    
     if (!features || features.length === 0) {
         featuresContainer.innerHTML = "<p>No features available</p>";
         return;
@@ -138,11 +147,16 @@ function showFeatures(features) {
         ul.appendChild(li);
     });
     featuresContainer.appendChild(ul);
+    
 }
+
 
 function showDetails2(item) {
     const extraDetails = document.createElement("div");
     extraDetails.className = "property des";
+     extraDetails.setAttribute("data-aos", "fade-right"); // من اليمين
+    extraDetails.setAttribute("data-aos-duration", "800"); // المدة
+    extraDetails.setAttribute("data-aos-delay", "200"); // تأخير (اختياري)
     extraDetails.innerHTML = `
         <p class="text"><strong>Property Details</strong></p>
         <div class="main">
@@ -167,20 +181,39 @@ function loved(id) {
     const favItem = allProducts.find(p => p.id === id);
     const btn = document.getElementById(`fav-btn-${id}`);
     if (!favItem || !btn) return;
+
     const existIndex = myArray.findIndex(p => p.id === id);
+
     if (existIndex === -1) {
         myArray.push(favItem);
         localStorage.setItem("loved", JSON.stringify(myArray));
         btn.classList.remove("bg-danger");
         btn.classList.add("bg-secondary");
         btn.innerHTML = `<i class="fa-solid fa-heart-circle-check"></i> Added`;
+
+        Swal.fire({
+            icon: "success",
+            title: "Added to favorites!",
+            text: "This property has been added to your favorites list.",
+            showConfirmButton: false,
+            timer: 1500
+        });
     } else {
         myArray.splice(existIndex, 1);
         localStorage.setItem("loved", JSON.stringify(myArray));
         btn.classList.remove("bg-secondary");
         btn.classList.add("bg-danger");
         btn.innerHTML = `<i class="fa-solid fa-heart"></i> Favorite`;
+
+        Swal.fire({
+            icon: "info",
+            title: "Removed from favorites",
+            text: "This property was removed from your favorites.",
+            showConfirmButton: false,
+            timer: 1500
+        });
     }
+
     const x = document.getElementById("nn");
     if (x) x.innerHTML = `${myArray.length}`;
 }
@@ -197,4 +230,7 @@ function details3() {
         </div>
     `;
     container.appendChild(bottom);
+    setTimeout(() => {
+        AOS.refresh();
+    }, 100);
 }
