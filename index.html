@@ -6,10 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        body {
+            background-color: #e4ffeacf;
+        }
+
         .navbar-brand {
             color: rgb(31, 159, 84) !important;
             font-weight: bold;
@@ -88,7 +99,7 @@
         }
 
         .property-card {
-            width: 100%;
+            /* width: 100%; */
             height: auto;
             background: #fff;
             border-radius: 5px;
@@ -179,8 +190,8 @@
             justify-content: center;
             align-items: center;
             gap: 50px;
-            padding: 30px;
-            background-color: #e4ffeacf;
+            padding: 0 30px;
+
         }
 
         #featured h1 {
@@ -192,6 +203,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 30px;
         }
 
         #fav {
@@ -221,13 +233,117 @@
         .faved:hover {
             transform: scale(0.9);
         }
+
         #nn {
             width: 30px;
             text-align: center;
         }
+
         a {
             color: white;
             text-decoration: none;
+        }
+
+        #numss {
+            background-color: #fff;
+            height: 200px;
+            display: flex;
+            gap: 40px;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .nums {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nums i {
+            font-size: 30px;
+            color: rgb(31, 159, 84);
+        }
+
+        .nums h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+
+        #p {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            padding: 0 200px;
+        }
+
+        .footer {
+            background-color: #313439;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1 1 200px;
+            margin: 20px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover,
+        .footer-section p:hover,
+        .footer-section i:hover,
+        .footer-bottom span:hover {
+            color: rgb(14, 136, 20);
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            font-size: 14px;
+        }
+
+        .footer-bottom span {
+            color: white;
+            transition: color 0.3s;
+        }
+        #nn {
+            width: 30px;
+            text-align: center;
+        }
+        .navbar-nav {
+    align-items: center;
         }
     </style>
 </head>
@@ -242,17 +358,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup" dir="rtl">
                 <div class="navbar-nav">
-                    <a class="8nav-link active" id="nn" style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
+                    <a class="8nav-link active" id="nn"
+                        style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
 
                     <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"
-
                             style="color: #ff0000;"></i></a>
                     <a class="nav-link active" href="contactUs.html">contact</a>
-                    <div>
-                        <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">Favourite</a>
-                        <!-- <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">________</a> -->
-                    </div>
-                    <a class="nav-link" href="#"> properties</a>
+                    <a class="nav-link" href="fav.html">Favourite</a>
+                    <a class="nav-link" href="properties.html"> properties</a>
                     <a class="nav-link active" href="index.html">Home</a>
                 </div>
             </div>
@@ -273,8 +386,11 @@
         </div>
     </div>
 
-    <div id="featuredP">
-        <div id="featured">
+    <div id="featuredP"   data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0">
+        <div id="featured"  data-aos="fade-up">
             <h1>Featured Properties</h1>
             <p>Explore our handpicked selection of premium properties</p>
         </div>
@@ -287,13 +403,100 @@
     </div>
 
 
+    <div id="numss">
+        <div class="nums">
+            <i class="fa-solid fa-house"></i>
+            <h2>48+</h2>
+            <p>Properties Sold</p>
+        </div>
+        <div class="nums">
+            <i class="fa-solid fa-users"></i>
+            <h2>96+</h2>
+            <p>Happy Clients</p>
+        </div>
+        <div class="nums">
+            <i class="fa-solid fa-award"></i>
+            <h2>1+</h2>
+            <p>Years Experience</p>
+        </div>
+        <div class="nums">
+            <i class="fa-solid fa-star"></i>
+            <h2>48+</h2>
+            <p>Client Rating</p>
+        </div>
+    </div>
+
+    <div   data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0">
+        <div id="featured"  data-aos="fade-up">
+            <h1>Recent Properities</h1>
+            <p>Latest additiomns to our property portfolio</p>
+        </div>
+        <div id="p"></div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Luxury Estates</h3>
+                <p>Your trusted partner in finding the perfect home. We specialize in luxury real estate and exceptional
+                    service.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Properties</a></li>
+                    <li><a href="#">Favorites</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Property Types</h4>
+                <ul>
+                    <li><a href="#">Apartments</a></li>
+                    <li><a href="#">Villas</a></li>
+                    <li><a href="#">Duplex</a></li>
+                    <li><a href="#">Penthouse</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <p><i class="fa fa-map-marker"></i> 123 Luxury Street, City, Country</p>
+                <p><i class="fa fa-phone"></i> +1 234 567 8900</p>
+                <p><i class="fa fa-envelope"></i> info@luxuryestates.com</p>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="footer-bottom">
+            <p>© 2024 Luxury Estates. جميع الحقوق محفوظة.</p>
+            <p>Designed with <span><i class="fa-solid fa-heart" style="color: #ff0000;"></i></a></span> for you</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.js"></script>
     <script src="bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        const container = document.getElementById("favcards");
+
+         AOS.init();
+        // const container = document.getElementById("favcards");
         let favcards = JSON.parse(localStorage.getItem("loved")) || [];
-        console.log(favcards);
+        // console.log(favcards);
 
         var x = document.getElementById("nn");
         x.innerHTML = `${favcards.length}`
@@ -335,25 +538,52 @@
             `;
                     wrapper.appendChild(slide);
                 });
+                const parant = document.getElementById("p");
 
+                allProducts.slice(0, 5).forEach(item => {
+                    const card = document.createElement("div");
+                    card.classList.add("property-card");
+                    const isFaved = myArray.some(p => p.id === item.id);
+                    const favClass = isFaved ? "faved" : "fav_btn";
+
+                    card.innerHTML = `
+        <img src="${item.images[0]}" alt="${item.title}" />
+        <div class="property-info">
+            <div class="tags">
+                <span class="type">${item.type}</span>
+                <span class="status">${item.status}</span>
+            </div>
+            <h2>${item.title}</h2>
+            <h3><i class="fa-solid fa-location-dot"></i> ${item.location}</h3>
+            <div class="details">
+                <span><i class="fa-solid fa-bed"></i> ${item.bedrooms} Beds</span>
+                <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
+                <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
+            </div>
+            <div id='fav'>
+                <h1 class="price">$${item.price}</h1>
+                <i class="fa-regular fa-heart ${favClass}" onclick="loved(this,${item.id})"></i>
+            </div>
+            <button onclick="ViewDetails(${item.id})">View Details</button>
+        </div>
+    `;
+                    parant.appendChild(card);
+                });
 
                 const swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    spaceBetween: 20,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
-swiper.update(); // ✅ ده اللي بيخلّي Swiper "يحدّث" كل الكروت المعروضة بشكل صحيح
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                });
+                swiper.update();
 
-        function ViewDetails(Id){
-            localStorage.setItem("viewDetails", Id);
-            window.location.href = "details.html"; //
-        }
+
             });
 
-        function loved(btn,id) {
+        function loved(btn, id) {
             const favItem = allProducts.find(p => p.id === id);
 
             if (!favItem) {
@@ -389,6 +619,12 @@ swiper.update(); // ✅ ده اللي بيخلّي Swiper "يحدّث" كل ال
                 btn.classList.remove("faved")
                 btn.classList.add("fav_btn");
             }
+        }
+        
+
+        function ViewDetails(Id) {
+            localStorage.setItem("viewDetails", Id);
+            window.location.href = "details.html"; //
         }
     </script>
 </body>
