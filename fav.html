@@ -35,10 +35,12 @@
             color: white;
             width: 100%;
         }
-        button{
+
+        button {
             transition: .5s;
         }
-        button:hover{
+
+        button:hover {
             transform: scale(.9);
         }
 
@@ -48,11 +50,12 @@
             width: 65%;
             background-color: rgba(187, 237, 208, 0.479);
             padding: 20px 70px;
-            
+
             border-radius: 6px;
             margin: 30px;
         }
-        .details span{
+
+        .details span {
             background-color: rgba(187, 237, 208, 0.479);
             padding: 5px;
             border-radius: 10px;
@@ -69,7 +72,8 @@
             gap: 20px;
             transition: .5s;
         }
-        .vew:hover{
+
+        .vew:hover {
             transform: scale(1.2);
         }
 
@@ -131,17 +135,19 @@
             overflow: hidden;
             padding: 15px;
             box-shadow: 1px 2px 10px grey;
-            transition: all 0.5s ;
+            transition: all 0.5s;
             background-color: white;
             margin: 15px;
             text-align: left;
-          
-            
-        }
-       .property-card{
-text-align: left;
+
 
         }
+
+        .property-card {
+            text-align: left;
+
+        }
+
         .card:hover {
             transform: scale(1.2);
             box-shadow: 1px 2px 20px rgb(12, 145, 87);
@@ -157,12 +163,14 @@ text-align: left;
 
         .card h6 {
             text-align: left;
-            margin:15px 0;
+            margin: 15px 0;
             color: #666363;
         }
-.card h3{
-    margin: 10px 0;
-}
+
+        .card h3 {
+            margin: 10px 0;
+        }
+
         .view {
             margin-top: 10px;
             width: 40%;
@@ -304,31 +312,36 @@ text-align: left;
             display: flex;
             justify-content: space-between;
         }
+
+        #nn {
+            width: 30px;
+            text-align: center;
+        }
     </style>
 
 </head>
 
 <body>
-    
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="color: rgb(27, 138, 73) !important; margin-left: 40px;"><i
-                    class="fa-solid fa-house" style="color: rgb(27, 138, 73) !important;"></i> luxury Estate</a>
+                    class="fa-solid fa-house" style="color: rgb(27, 138, 73) !important;"></i> Luxury Estate</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup" dir="rtl">
                 <div class="navbar-nav">
-                    <a class="8nav-link active" id="nn" style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
+                    <a class="8nav-link active" id="nn"
+                        style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
 
                     <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"
-
                             style="color: #ff0000;"></i></a>
                     <a class="nav-link active" href="contactUs.html">contact</a>
                     <div>
                         <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">Favourite</a>
-                        <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">________</a>
+                        <!-- <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">________</a> -->
                     </div>
                     <a class="nav-link" href="#"> properties</a>
                     <a class="nav-link active" href="index.html">Home</a>
@@ -427,15 +440,15 @@ text-align: left;
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-       
+
         const container = document.getElementById("favcards");
         let favcards = JSON.parse(localStorage.getItem("loved")) || [];
         console.log(favcards);
 
-var x = document.getElementById("nn"); 
-x.innerHTML=`${favcards.length}`
-var y = document.getElementsByClassName("num")[0]; 
-y.innerHTML=`${favcards.length}`
+        var x = document.getElementById("nn");
+        x.innerHTML = `${favcards.length}`
+        var y = document.getElementsByClassName("num")[0];
+        y.innerHTML = `${favcards.length}`
         function trips() {
             container.innerHTML = "";
             container.classList.add("container");

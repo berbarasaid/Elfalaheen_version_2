@@ -221,22 +221,39 @@
         .faved:hover {
             transform: scale(0.9);
         }
+        #nn {
+            width: 30px;
+            text-align: center;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
     </style>
 </head>
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-house"></i> Luxury Estates</a>
+            <a class="navbar-brand" href="#" style="color: rgb(27, 138, 73) !important; margin-left: 40px;"><i
+                    class="fa-solid fa-house" style="color: rgb(27, 138, 73) !important;"></i> Luxury Estate</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" dir="rtl">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    <a class="nav-link" href="properties.html">Properties</a>
-                    <a class="nav-link" href="fav.html">Favorites</a>
-                    <a class="nav-link" href="contactUs.html">Contact</a>
+                    <a class="8nav-link active" id="nn" style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
+
+                    <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"
+
+                            style="color: #ff0000;"></i></a>
+                    <a class="nav-link active" href="contactUs.html">contact</a>
+                    <div>
+                        <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">Favourite</a>
+                        <!-- <a class="nav-link" href="#" style="color: rgb(9, 182, 55);">________</a> -->
+                    </div>
+                    <a class="nav-link" href="#"> properties</a>
+                    <a class="nav-link active" href="index.html">Home</a>
                 </div>
             </div>
         </div>
@@ -274,6 +291,12 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        const container = document.getElementById("favcards");
+        let favcards = JSON.parse(localStorage.getItem("loved")) || [];
+        console.log(favcards);
+
+        var x = document.getElementById("nn");
+        x.innerHTML = `${favcards.length}`
         let allProducts = [];
         let myArray = JSON.parse(localStorage.getItem("loved")) || [];
         fetch("https://edu-me01.github.io/Json-Data/properties.json")
@@ -329,48 +352,7 @@ swiper.update(); // ✅ ده اللي بيخلّي Swiper "يحدّث" كل ال
             window.location.href = "details.html"; //
         }
             });
-// بعد إنشاء السلايدر:
 
-        
-
-        
-        // function ViewDetails(Id){
-        //     localStorage.setItem("viewDetails", Id);
-        // }
-        // function loadfav(){
-        //     const fav = localStorage.getItem("fav")
-        //     return fav? JSON.parse(fav) : []
-        // }
-        // function savefavn(fav){
-        //     localStorage.setItem("fav", JSON.stringify(fav))
-        // }
-        // function togglefav(id){
-        //     let favorites = loadfav()
-        //     const index = favorites.indexOf(id)
-        //     if(index > -1){
-        //         favorites.splice(index, 1)
-        //     }
-        //     else{
-        //         favorites.push(id)
-        //     }
-        //     savefavn(fav)
-        //     updatefav_btn()
-        // }
-        // function updatefav_btn(){
-        //     const favorites = loadfav()
-        //     document.querySelectorAll("fav_btn").forEach(btn => {
-        //         const id = parseInt(btn.dataset.id)
-        //         if(favorites.includes(id)){
-        //             btn.classList.add("faved")
-        //             btn.innerHTML = <i class="fa-regular fa-heart" onclick="fav(1)"></i>
-        //         }
-        //         else{
-        //             btn.classList.remove("faved")
-        //             btn.innerHTML = <i class="fa-regular fa-heart" onclick="fav(1)"></i>
-        //         }
-        //     })
-
-        // }
         function loved(btn,id) {
             const favItem = allProducts.find(p => p.id === id);
 
