@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        body {
+            background-color: #e4ffeacf;
+        }
+
         .navbar-brand {
             color: rgb(31, 159, 84) !important;
             font-weight: bold;
@@ -180,7 +190,7 @@
             align-items: center;
             gap: 50px;
             padding: 30px;
-            background-color: #e4ffeacf;
+
         }
 
         #featured h1 {
@@ -221,13 +231,42 @@
         .faved:hover {
             transform: scale(0.9);
         }
+
         #nn {
             width: 30px;
             text-align: center;
         }
+
         a {
             color: white;
             text-decoration: none;
+        }
+
+        #numss {
+            background-color: #fff;
+            height: 200px;
+            display: flex;
+            gap: 40px;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .nums {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nums i {
+            font-size: 30px;
+            color: rgb(31, 159, 84);
+        }
+
+        .nums h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -242,10 +281,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup" dir="rtl">
                 <div class="navbar-nav">
-                    <a class="8nav-link active" id="nn" style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
+                    <a class="8nav-link active" id="nn"
+                        style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
 
                     <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"
-
                             style="color: #ff0000;"></i></a>
                     <a class="nav-link active" href="contactUs.html">contact</a>
                     <div>
@@ -286,6 +325,38 @@
         </div>
     </div>
 
+
+    <div id="numss">
+        <div class="nums">
+            <i class="fa-solid fa-house"></i>
+            <h2>48+</h2>
+            <p>Properties Sold</p>
+        </div>
+        <div class="nums">
+            <i class="fa-solid fa-users"></i>
+            <h2>96+</h2>
+            <p>Happy Clients</p>
+        </div>
+        <div class="nums">
+            <i class="fa-solid fa-award"></i>
+            <h2>1+</h2>
+            <p>Years Experience</p>
+        </div>
+        <div class="nums">
+            <i class="fa-solid fa-star"></i>
+            <h2>48+</h2>
+            <p>Client Rating</p>
+        </div>
+    </div>
+
+    <div>
+        <div id="featured">
+            <h1>Recent Properities</h1>
+            <p>Latest additiomns to our property portfolio</p>
+        </div>
+        <div id="p"></div>
+
+    </div>
 
     <script src="bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -335,25 +406,52 @@
             `;
                     wrapper.appendChild(slide);
                 });
+                const parant = document.getElementById("p");
 
+        allProducts.splice(0,4).forEach(item => {
+            const card = document.createElement("div");
+            card.classList.add("property-card");
+            const isFaved = myArray.some(p => p.id === item.id);
+            const favClass = isFaved ? "faved" : "fav_btn";
+
+            card.innerHTML = `
+        <img src="${item.images[0]}" alt="${item.title}" />
+        <div class="property-info">
+            <div class="tags">
+                <span class="type">${item.type}</span>
+                <span class="status">${item.status}</span>
+            </div>
+            <h2>${item.title}</h2>
+            <h3><i class="fa-solid fa-location-dot"></i> ${item.location}</h3>
+            <div class="details">
+                <span><i class="fa-solid fa-bed"></i> ${item.bedrooms} Beds</span>
+                <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
+                <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
+            </div>
+            <div id='fav'>
+                <h1 class="price">$${item.price}</h1>
+                <i class="fa-regular fa-heart ${favClass}" onclick="loved(this,${item.id})"></i>
+            </div>
+            <button onclick="ViewDetails(${item.id})">View Details</button>
+        </div>
+    `;
+            parant.appendChild(card);
+        });
 
                 const swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    spaceBetween: 20,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
-swiper.update(); // ✅ ده اللي بيخلّي Swiper "يحدّث" كل الكروت المعروضة بشكل صحيح
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                });
+                swiper.update();
 
-        function ViewDetails(Id){
-            localStorage.setItem("viewDetails", Id);
-            window.location.href = "details.html"; //
-        }
+                
             });
 
-        function loved(btn,id) {
+        function loved(btn, id) {
             const favItem = allProducts.find(p => p.id === id);
 
             if (!favItem) {
@@ -390,6 +488,41 @@ swiper.update(); // ✅ ده اللي بيخلّي Swiper "يحدّث" كل ال
                 btn.classList.add("fav_btn");
             }
         }
+        // var parant = document.getElementById("p")
+        // allProducts.forEach(item => {
+        //     const a = document.createElement("div");
+        //     a.classList.add("property-card")
+        //     const isFaved = myArray.some(p => p.id === item.id);
+        //     const favClass = isFaved ? "faved" : "fav_btn";
+
+        //     a.innerHTML = `
+        //                 <div>
+        //                     <img src="${item.images[0]}" alt="${item.title}" />
+        //                     <div class="property-info">
+        //                         <div class="tags">
+        //                             <span class="type">${item.type}</span>
+        //                             <span class="status">${item.status}</span>
+        //                         </div>
+        //                         <h2>${item.title}</h2>
+        //                         <h3><i class="fa-solid fa-location-dot"></i> ${item.location}</h3>
+        //                         <div class="details">
+        //                             <span><i class="fa-solid fa-bed"></i> ${item.bedrooms} Beds</span>
+        //                             <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
+        //                             <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
+        //                         </div>
+        //                         <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart ${favClass}" onclick="loved(this,${item.id})"></i></div>
+
+        //                         <button onclick="ViewDetails(${item.id})">View Details</button>
+        //                     </div>
+        //                 </div>
+        //     `;
+        //     parant.appendChild(a);
+        // });
+        
+        function ViewDetails(Id) {
+                    localStorage.setItem("viewDetails", Id);
+                    window.location.href = "details.html"; //
+                }
     </script>
 </body>
 
